@@ -33,7 +33,7 @@
 # $Id$
 
 TARGET = $(notdir $(CURDIR))
-INSTALL_DIR = ../../arduino22/arduino-0022/
+INSTALL_DIR = ../../../arduino-0023/
 UPLOAD_RATE = 38400
 AVRDUDE_PROGRAMMER = stk500v1
 PORT = /dev/ttyUSB0

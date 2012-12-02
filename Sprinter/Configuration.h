@@ -17,7 +17,7 @@
 // Gen 3 Plus = 21
 // gen 3  Monolithic Electronics = 22
 // Gen3 PLUS for TechZone Gen3 Remix Motherboard = 23
-#define MOTHERBOARD 33
+#define MOTHERBOARD 62
 
 //// Thermistor settings:
 // 1 is 100k thermistor
@@ -32,12 +32,14 @@
 
 //// Calibration variables
 // X, Y, Z, E steps per unit - Metric Prusa Mendel with Wade extruder:
-#define _AXIS_STEP_PER_UNIT {80, 80, 3200/1.25,700}
+//#define _AXIS_STEP_PER_UNIT {80, 80, 3200/1.25,700}
 // Metric Prusa Mendel with Makergear geared stepper extruder:
 //#define _AXIS_STEP_PER_UNIT {80,80,3200/1.25,1380}
 // MakerGear Hybrid Prusa Mendel:
 // Z axis value is for .9 stepper(if you have 1.8 steppers for Z, you need to use 2272.7272)
 //#define _AXIS_STEP_PER_UNIT {104.987, 104.987, 4545.4544, 1487}
+// Zen Toolworks 7x7 (no E)
+#define _AXIS_STEP_PER_UNIT { 3200/1.25, 3200/1.25, 3200/1.25, 700}
 
 
 //// Endstop Settings
@@ -54,7 +56,7 @@ const bool Z_ENDSTOP_INVERT = false;
 //#define BAUDRATE 250000
 
 // Comment out (using // at the start of the line) to disable SD support:
-#define SDSUPPORT
+//#define SDSUPPORT
 
 // Uncomment to make run init.g from SD on boot
 //#define SDINITFILE
@@ -110,9 +112,9 @@ const bool Z_ENDSTOP_INVERT = false;
 // Disables axis when it's not being used.
 //-----------------------------------------------------------------------
 const bool DISABLE_X = false;
-const bool DISABLE_Y = false;
+const bool DISABLE_Y = true;
 const bool DISABLE_Z = true;
-const bool DISABLE_E = false;
+const bool DISABLE_E = true;
 
 //-----------------------------------------------------------------------
 // Inverting axis direction
@@ -139,19 +141,19 @@ const bool max_software_endstops = true; //If true, axis won't move to coordinat
 //-----------------------------------------------------------------------
 //Max Length for Prusa Mendel, check the ways of your axis and set this Values
 //-----------------------------------------------------------------------
-const int X_MAX_LENGTH = 200;
-const int Y_MAX_LENGTH = 200;
-const int Z_MAX_LENGTH = 100;
+const int X_MAX_LENGTH = 165;
+const int Y_MAX_LENGTH = 165;
+const int Z_MAX_LENGTH = 165;
 
 //-----------------------------------------------------------------------
 //// MOVEMENT SETTINGS
 //-----------------------------------------------------------------------
 const int NUM_AXIS = 4; // The axis order in all axis related arrays is X, Y, Z, E
-#define _MAX_FEEDRATE {400, 400, 2, 45}       // (mm/sec)    
-#define _HOMING_FEEDRATE {1500,1500,120}      // (mm/min) !!
+#define _MAX_FEEDRATE {20, 20, 20, 45}       // (mm/sec)    
+#define _HOMING_FEEDRATE {15,15,120}      // (mm/min) !!
 #define _AXIS_RELATIVE_MODES {false, false, false, false}
 
-#define MAX_STEP_FREQUENCY 30000 // Max step frequency
+#define MAX_STEP_FREQUENCY 60000 // Max step frequency
 
 //For the retract (negative Extruder) move this maxiumum Limit of Feedrate is used
 //The next positive Extruder move use also this Limit, 
